@@ -1,0 +1,39 @@
+<label for="">Server Name</label>
+<!--<input type="text" class="form-control" (input)="onUpdateServerName($event)" />-->
+<input type="text" class="form-control" [(ngModel)]="serverName" />
+<button
+  class="btn btn-primary"
+  [disabled]="!allowNewServer"
+  (click)="onCreateServer()"
+>
+  Add Server
+</button>
+<p>{{ serverCreationStatus }}</p>
+<app-server></app-server>
+<app-server></app-server>
+
+<hr />
+<hr />
+
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="userName"
+  [ngStyle]="{ borderColor: userCreated ? 'green' : 'red' }"
+/>
+<!--[ngclass]="{online: true}"-->
+<p *ngIf="userCreated; else noUser">your username is {{ userName }}</p>
+<ng-template #noUser>
+  <p>no user was created</p>
+</ng-template>
+<button
+  class="btn btn-primary"
+  [disabled]="userName.trim() == ''"
+  (click)="userName = ''"
+>
+  Reset username
+</button>
+<button class="btn btn-primary" (click)="onUserCreated()">Create User</button>
+<p *ngFor="let user of usersList; let i = index">
+  {{ user }}: user {{ i + 1 }}
+</p>

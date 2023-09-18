@@ -1,0 +1,12 @@
+<app-header (navClickItem)="clickedNavItem($event)"></app-header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-recipe *ngIf="feature === 'recipe'"></app-recipe>
+      <app-shopping-list
+        *ngIf="feature === 'shopping-list'"
+      ></app-shopping-list>
+    </div>
+  </div>
+</div>
