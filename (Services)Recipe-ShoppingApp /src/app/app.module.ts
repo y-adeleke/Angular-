@@ -12,6 +12,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { BetterHighlightDirective } from './custom-directive/better-highlight.directive';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { AppRpoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
     BetterHighlightDirective,
     DropdownDirective,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, AppRpoutingModule],
   providers: [ShoppingListService],
   bootstrap: [AppComponent],
 })

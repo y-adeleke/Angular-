@@ -1,3 +1,4 @@
+import { ElementRef } from '@angular/core';
 import { BetterHighlightDirective } from './better-highlight.directive';
 
 describe('BetterHighlightDirective', () => {
