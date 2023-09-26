@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -13,6 +14,9 @@ import { BetterHighlightDirective } from './custom-directive/better-highlight.di
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { AppRpoutingModule } from './app-routing.module';
+import { RecipeService } from './recipe/recipeService.service';
+import { RecipeStartComponent } from './recipe/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +30,11 @@ import { AppRpoutingModule } from './app-routing.module';
     ShoppingEditComponent,
     BetterHighlightDirective,
     DropdownDirective,
+    RecipeStartComponent,
+    RecipeEditComponent,
   ],
-  imports: [BrowserModule, AppRpoutingModule],
-  providers: [ShoppingListService],
+  imports: [BrowserModule, AppRpoutingModule, FormsModule],
+  providers: [ShoppingListService, RecipeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
