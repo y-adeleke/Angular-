@@ -6,7 +6,6 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
-  styleUrls: ['./shopping-list.component.css'],
   providers: [],
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
@@ -20,6 +19,9 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
         this.ingridients = curItem;
       }
     );
+  }
+  onEditItem(index: number) {
+    this.shoppingListService.startedEditing.next(index);
   }
   ngOnDestroy(): void {
     this.igChangeSub?.unsubscribe();
