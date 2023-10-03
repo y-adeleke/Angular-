@@ -9,6 +9,7 @@ export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
   selctedRecipe = new EventEmitter<Recipe | null>();
 
+  /*
   private recipes: Recipe[] = [
     new Recipe(
       'Jollof Rice',
@@ -23,8 +24,14 @@ export class RecipeService {
       [new Ingridients('onions', 10), new Ingridients('rice', 45)]
     ),
   ];
-
+  */
+  private recipes: Recipe[] = [];
   constructor(private slService: ShoppingListService) {}
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
 
   getRecipes() {
     return this.recipes.slice();
